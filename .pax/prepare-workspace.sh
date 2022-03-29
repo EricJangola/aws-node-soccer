@@ -45,7 +45,7 @@ npm install --only=prod
 
 cd "${ROOT_DIR}"
 
-# copy sample-node-api to target folder
+# copy tsubasa-soccer-club to target folder
 # copy start script to target folder - included in dist
 echo "[${SCRIPT_NAME}] copying sample node api backend ..."
 mkdir -p "${PAX_WORKSPACE_DIR}/content"

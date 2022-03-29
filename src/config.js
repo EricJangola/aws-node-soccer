@@ -64,7 +64,7 @@ function setUpParams() {
     .option('s', {
     alias: 'service',
     description: 'service-for path',
-    default: 'sample-node-api'
+    default: 'tsubasa-soccer-club'
     })
     .option('p', {
     alias: 'port',

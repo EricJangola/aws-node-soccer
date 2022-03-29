@@ -2,13 +2,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sample-node-api
+  name: tsubasa-soccer-club
   namespace: zowe
   labels:
     app.kubernetes.io/name: zowe
     app.kubernetes.io/instance: zowe
     # app.kubernetes.io/version:
-    app.kubernetes.io/component: sample-node-api
+    app.kubernetes.io/component: tsubasa-soccer-club
     # app.kubernetes.io/part-of:
     app.kubernetes.io/managed-by: manual
 spec:
@@ -16,13 +16,13 @@ spec:
     matchLabels:
       app.kubernetes.io/name: zowe
       app.kubernetes.io/instance: zowe
-      app.kubernetes.io/component: sample-node-api
+      app.kubernetes.io/component: tsubasa-soccer-club
   template:
     metadata:
       labels:
         app.kubernetes.io/name: zowe
         app.kubernetes.io/instance: zowe
-        app.kubernetes.io/component: sample-node-api
+        app.kubernetes.io/component: tsubasa-soccer-club
     spec:
       securityContext:
         runAsUser: 20000
@@ -48,8 +48,8 @@ spec:
           persistentVolumeClaim:
             claimName: zowe-workspace-pvc
       containers:
-        - name: sample-node-api
-          image: zowe-docker-snapshot.jfrog.io/ompzowe/sample-node-api:1.0.0-ubuntu-amd64.containerization-6
+        - name: tsubasa-soccer-club
+          image: zowe-docker-snapshot.jfrog.io/ompzowe/tsubasa-soccer-club:1.0.0-ubuntu-amd64.containerization-6
           imagePullPolicy: Always
           resources:
             requests:
@@ -118,7 +118,7 @@ spec:
 apiVersion: policy/v1beta1
 kind: PodDisruptionBudget
 metadata:
-  name: sample-node-api-pdb
+  name: tsubasa-soccer-club-pdb
   namespace: zowe
   labels:
     app.kubernetes.io/name: zowe
@@ -132,4 +132,4 @@ spec:
     matchLabels:
       app.kubernetes.io/name: zowe
       app.kubernetes.io/instance: zowe
-      app.kubernetes.io/component: sample-node-api
+      app.kubernetes.io/component: tsubasa-soccer-club

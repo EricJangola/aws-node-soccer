@@ -86,7 +86,7 @@ echo "[${SCRIPT_NAME}] building client ..."
 npm install     
 npm run build
 
-# copy sample-node-api to target folder
+# copy tsubasa-soccer-club to target folder
 # copy start script to target folder - included in dist
 echo "[${SCRIPT_NAME}] copying sample node api backend ..."
 cp -r dist/. "${BASE_DIR}/${WORK_DIR}"
