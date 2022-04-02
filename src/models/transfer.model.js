@@ -7,6 +7,7 @@ function model(sequelize) {
         originalTeam: { type: DataTypes.STRING, allowNull: false },
         newTeam: { type: DataTypes.STRING, allowNull: false },
         Date: { type: DataTypes.STRING, allowNull: false },
+        Player: { type: DataTypes.STRING, allowNull: false },
         Price: { type: DataTypes.STRING, allowNull: false }
     };
 
