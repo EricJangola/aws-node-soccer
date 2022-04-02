@@ -12,6 +12,7 @@ function create(req, res, next) {
     service.create(req.body)
         .then(() => res.json({ message: 'Transer player' }))
         .catch(next);
+        
 }
 
 module.exports = {

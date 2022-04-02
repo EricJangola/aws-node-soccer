@@ -8,6 +8,7 @@ function model(sequelize) {
         country: { type: DataTypes.STRING, allowNull: false },
         teamId: { type: DataTypes.STRING, allowNull: false }
     };
+    
 
     const options = {
         scopes: {
