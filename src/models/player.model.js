@@ -1,4 +1,26 @@
-class Player {
+const { DataTypes } = require('sequelize');
+
+function model(sequelize) {
+    const attributes = {
+        name: { type: DataTypes.STRING, allowNull: false },
+        birthplace: { type: DataTypes.STRING, allowNull: false },
+        country: { type: DataTypes.STRING, allowNull: false },
+        teamId: { type: DataTypes.STRING, allowNull: false }
+    };
+
+    const options = {
+        scopes: {
+            // include hash with this scope
+            withHash: { attributes: {}, }
+        }
+    };
+
+    return sequelize.define('Players', attributes, options);
+}
+
+module.exports = model;
+
+/*class Player {
     fields = {
         Name: null,
         BirthDate: null,
@@ -47,4 +69,4 @@ class Player {
     }
 }
 
-exports.Player = Player;
+exports.Player = Player;*/

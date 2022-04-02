@@ -1,4 +1,26 @@
-class Transfer {
+const { DataTypes } = require('sequelize');
+
+module.exports = model;
+
+function model(sequelize) {
+    const attributes = {
+        originalTeam: { type: DataTypes.STRING, allowNull: false },
+        newTeam: { type: DataTypes.STRING, allowNull: false },
+        Date: { type: DataTypes.STRING, allowNull: false },
+        Price: { type: DataTypes.STRING, allowNull: false }
+    };
+
+    const options = {
+        scopes: {
+            // include hash with this scope
+            withHash: { attributes: {}, }
+        }
+    };
+
+    return sequelize.define('Transfers', attributes, options);
+}
+
+/*class Transfer {
     fields = {
         OriginalTeam: null,
         NewTeam: null,
@@ -39,4 +61,4 @@ class Transfer {
     }
 }
 
-exports.Transfer = Transfer;
+exports.Transfer = Transfer;*/

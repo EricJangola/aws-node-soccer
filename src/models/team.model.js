@@ -1,4 +1,24 @@
-class Team {
+const { DataTypes } = require('sequelize');
+
+module.exports = model;
+
+function model(sequelize) {
+    const attributes = {
+        name: { type: DataTypes.STRING, allowNull: false },
+        place: { type: DataTypes.STRING, allowNull: false }
+    };
+
+    const options = {
+        scopes: {
+            // include hash with this scope
+            withHash: { attributes: {}, }
+        }
+    };
+
+    return sequelize.define('Teams', attributes, options);
+}
+
+/*class Team {
     fields = {
         Name: null,
         Place: null
@@ -29,4 +49,4 @@ class Team {
     }
 }
 
-exports.Team = Team;
+exports.Team = Team;*/
