@@ -1,17 +1,8 @@
-/*
-  This program and the accompanying materials are
-  made available under the terms of the Eclipse Public License v2.0 which accompanies
-  this distribution, and is available at https://www.eclipse.org/legal/epl-v20.html
-  
-  SPDX-License-Identifier: EPL-2.0
-  
-  Copyright IBM Corporation 2020
-*/
-
 const express = require('express');
 const http = require('http');
 const https = require('https');
 const cors = require('cors');
+var bodyParser = require('body-parser')
 
 //build config from params
 const config = require('./config');
@@ -23,6 +14,16 @@ const app = express();
 app.use(cors());
 const routes = require('./routes/index.route');
 app.use(routes);
+app.use(express.json());
+
+// create application/json parser
+var jsonParser = bodyParser.json()
+app.use(jsonParser);
+
+app.use(express.urlencoded({ extended: true }));
+
+// parse application/json
+app.use(bodyParser.json())
 
 //start http server
 const httpServer = http.createServer(app);
