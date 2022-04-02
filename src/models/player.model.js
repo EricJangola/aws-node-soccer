@@ -17,7 +17,7 @@ function model(sequelize) {
     };
     
     return sequelize.define('Players', attributes, options);
-    //player.hasOne(Team);
+    //player.belongsTo(Team);
 }
 
 module.exports = model;
