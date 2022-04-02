@@ -5,7 +5,8 @@ const get =  async function(_id){
     await getPlayer(id);
 }
 
-const getAll = async function(){
+const getAll = async function() {
+    const players = await db.Players.findAll();
     return await db.Players.findAll();
 }
 
