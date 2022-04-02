@@ -8,7 +8,14 @@ const getAll = function(req, res){
     res.send(service.getAll())
 }
 
+function create(req, res, next) {
+    service.create(req.body)
+        .then(() => res.json({ message: 'Player created' }))
+        .catch(next);
+}
+
 module.exports = {
     get,
-    getAll
+    getAll,
+    create
 };

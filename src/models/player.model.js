@@ -1,4 +1,5 @@
 const { DataTypes } = require('sequelize');
+const Team = require('./team.model');
 
 function model(sequelize) {
     const attributes = {
@@ -14,8 +15,11 @@ function model(sequelize) {
             withHash: { attributes: {}, }
         }
     };
+    
+    const player = sequelize.define('Players', attributes, options);
+    //player.hasOne(Team);
 
-    return sequelize.define('Players', attributes, options);
+    return player;
 }
 
 module.exports = model;

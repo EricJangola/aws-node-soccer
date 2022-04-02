@@ -15,7 +15,19 @@ async function getPlayer(id) {
     return player;
 }
 
+async function create(params) {
+    // validate
+    if (await db.Players.findOne({ where: { name: params.name } })) {
+        throw 'Player "' + params.name + '" is already registered';
+    }
+
+    const pl = new db.Players(params);
+    // save user
+    await pl.save();
+}
+
 module.exports = {
     get,
-    getAll
+    getAll,
+    create
 };

@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router({ mergeParams: true });
 
+var bodyParser = require('body-parser')
+var jsonParser = bodyParser.json();
+
 const playerController = require('../controllers/player.controller');
 
 router.route('/')
@@ -8,6 +11,9 @@ router.route('/')
 
 router.route('/:_id')
     .get(playerController.get);
+
+router.route('/')
+    .post(jsonParser, playerController.create);
 
 //router.use('/:Account_id', accountsCarsRoute);
 
