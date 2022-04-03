@@ -2,10 +2,7 @@ const { DataTypes } = require('sequelize');
 
 function model(sequelize) {
     const attributes = {
-        teamOne: { type: DataTypes.STRING, allowNull: false },
-        teamTwo: { type: DataTypes.STRING, allowNull: false },
-        date: { type: DataTypes.STRING, allowNull: false },
-        winner: { type: DataTypes.STRING, allowNull: false },
+        teamId: { type: DataTypes.STRING, allowNull: false },
         tournamentId: { type: DataTypes.STRING, allowNull: false }
     };
 
@@ -16,7 +13,7 @@ function model(sequelize) {
         }
     };
     
-    return sequelize.define('Matches', attributes, options);
+    return sequelize.define('TeamInTournaments', attributes, options);
 }
 
 module.exports = model;

@@ -10,5 +10,11 @@
       "user": "root",
       "password": "naka",
       "database": "aws-database"
+  },
+  "rabbit": {
+    "uri": "amqp://localhost"
+  },
+  "redis": {
+    "uri": "localhost"
   }
 }
