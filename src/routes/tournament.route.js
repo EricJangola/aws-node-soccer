@@ -7,28 +7,52 @@ var jsonParser = bodyParser.json();
 const controller = require('../controllers/tournament.controller');
 
 router.route('/')
-    .get(controller.getAll);
+    .get(controller.getAll, () => {
+        // #swagger.tags = ['Tournament']
+        // #swagger.description = 'Endpoint to get soccer Tournament'
+    });
 
 router.route('/:_id')
-    .get(controller.get);
+    .get(controller.get, () => {
+        // #swagger.tags = ['Tournament']
+        // #swagger.description = 'Endpoint to get soccer Tournament'
+    });
 
 router.route('/')
-    .post(jsonParser, controller.create);
+    .post(jsonParser, controller.create, () => {
+        // #swagger.tags = ['Tournament']
+        // #swagger.description = 'Endpoint to post soccer Tournament'
+    });
 
 router.route('/:_id/match/:_matchId/detail/start')
-    .post(jsonParser, controller.setStart);
+    .post(jsonParser, controller.setStart, () => {
+        // #swagger.tags = ['Tournament']
+        // #swagger.description = 'Endpoint to post soccer Tournament'
+    });
 
 router.route('/:_id/match/:_matchId/detail/gol')
-    .post(jsonParser, controller.setGol);
+    .post(jsonParser, controller.setGol, () => {
+        // #swagger.tags = ['Tournament']
+        // #swagger.description = 'Endpoint to post soccer Tournament'
+    });
 
 router.route('/:_id/match/:_matchId/detail/interval')
-    .post(jsonParser, controller.setInterval);
+    .post(jsonParser, controller.setInterval, () => {
+        // #swagger.tags = ['Tournament']
+        // #swagger.description = 'Endpoint to post soccer Tournament'
+    });
 
 router.route('/:_id/match/:_matchId/detail/overtime')
-    .post(jsonParser, controller.setOvertime);
+    .post(jsonParser, controller.setOvertime, () => {
+        // #swagger.tags = ['Tournament']
+        // #swagger.description = 'Endpoint to post soccer Tournament'
+    });
 
 router.route('/:_id/match/:_matchId/detail/warning')
-    .post(jsonParser, controller.setWarning);
+    .post(jsonParser, controller.setWarning, () => {
+        // #swagger.tags = ['Tournament']
+        // #swagger.description = 'Endpoint to post soccer Tournament'
+    });
 
 //router.use('/:Account_id', accountsCarsRoute);
 

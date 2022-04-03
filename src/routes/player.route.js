@@ -7,13 +7,22 @@ var jsonParser = bodyParser.json();
 const playerController = require('../controllers/player.controller');
 
 router.route('/')
-    .get(playerController.getAll);
+    .get(playerController.getAll, () => {
+        // #swagger.tags = ['Player']
+        // #swagger.description = 'Endpoint to get soccer Player'
+    });
 
 router.route('/:_id')
-    .get(playerController.get);
+    .get(playerController.get, () => {
+        // #swagger.tags = ['Player']
+        // #swagger.description = 'Endpoint to get soccer Player'
+    });
 
 router.route('/')
-    .post(jsonParser, playerController.create);
+    .post(jsonParser, playerController.create, () => {
+        // #swagger.tags = ['Player']
+        // #swagger.description = 'Endpoint to post soccer Player'
+    });
 
 //router.use('/:Account_id', accountsCarsRoute);
 

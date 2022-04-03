@@ -5,15 +5,23 @@ var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json();
 
 const controller = require('../controllers/match.controller');
-
 router.route('/')
-    .get(controller.getAll);
+    .get(controller.getAll, () => {
+        // #swagger.tags = ['Match']
+        // #swagger.description = 'Endpoint to get soccer match' 
+    });
 
 router.route('/:_id')
-    .get(controller.get);
+    .get(controller.get, () => {
+        // #swagger.tags = ['Match']
+        // #swagger.description = 'Endpoint to get soccer match' 
+    });
 
 router.route('/')
-    .post(jsonParser, controller.create);
+    .post(jsonParser, controller.create, () => {
+        // #swagger.tags = ['Match']
+        // #swagger.description = 'Endpoint to post soccer match' 
+    });
 
 //router.use('/:Account_id', accountsCarsRoute);
 

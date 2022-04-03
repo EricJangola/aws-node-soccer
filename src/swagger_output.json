@@ -1,19 +1,25 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "1.0.0",
-    "title": "REST API",
-    "description": ""
+    "description": "AWS Node Soccer",
+    "version": "1.0",
+    "title": "AWS Node Soccer"
   },
-  "host": "localhost:3000",
+  "host": "localhost:18000",
   "basePath": "/",
   "schemes": [
     "http"
   ],
+  "produces": [
+    "application/json"
+  ],
   "paths": {
     "/": {
       "get": {
-        "description": "",
+        "tags": [
+          "Transfer"
+        ],
+        "description": "Endpoint to get soccer Transfer",
         "parameters": [],
         "responses": {
           "200": {
@@ -22,6 +28,20 @@
         }
       },
       "post": {
+        "tags": [
+          "Transfer"
+        ],
+        "description": "Endpoint to post soccer Transfer",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
         "description": "",
         "parameters": [],
         "responses": {
@@ -31,9 +51,489 @@
         }
       }
     },
+    "/team/": {
+      "get": {
+        "tags": [
+          "Team"
+        ],
+        "description": "Endpoint to get soccer Team",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Team"
+        ],
+        "description": "Endpoint to post soccer Team",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/team/{_id}": {
+      "get": {
+        "tags": [
+          "Team"
+        ],
+        "description": "Endpoint to get soccer Team",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/transfer/": {
+      "get": {
+        "tags": [
+          "Transfer"
+        ],
+        "description": "Endpoint to get soccer Transfer",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Transfer"
+        ],
+        "description": "Endpoint to post soccer Transfer",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/transfer/transfer/{_id}": {
+      "get": {
+        "tags": [
+          "Transfer"
+        ],
+        "description": "Endpoint to get soccer Transfer",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/player/": {
+      "get": {
+        "tags": [
+          "Player"
+        ],
+        "description": "Endpoint to get soccer Player",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Player"
+        ],
+        "description": "Endpoint to post soccer Player",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/player/{_id}": {
+      "get": {
+        "tags": [
+          "Player"
+        ],
+        "description": "Endpoint to get soccer Player",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/tournament/": {
+      "get": {
+        "tags": [
+          "Tournament"
+        ],
+        "description": "Endpoint to get soccer Tournament",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Tournament"
+        ],
+        "description": "Endpoint to post soccer Tournament",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/tournament/{_id}": {
+      "get": {
+        "tags": [
+          "Tournament"
+        ],
+        "description": "Endpoint to get soccer Tournament",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/tournament/{_id}/match/{_matchId}/detail/start": {
+      "post": {
+        "tags": [
+          "Tournament"
+        ],
+        "description": "Endpoint to post soccer Tournament",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "_matchId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "start": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/tournament/{_id}/match/{_matchId}/detail/gol": {
+      "post": {
+        "tags": [
+          "Tournament"
+        ],
+        "description": "Endpoint to post soccer Tournament",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "_matchId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "gol": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/tournament/{_id}/match/{_matchId}/detail/interval": {
+      "post": {
+        "tags": [
+          "Tournament"
+        ],
+        "description": "Endpoint to post soccer Tournament",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "_matchId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "interval": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/tournament/{_id}/match/{_matchId}/detail/overtime": {
+      "post": {
+        "tags": [
+          "Tournament"
+        ],
+        "description": "Endpoint to post soccer Tournament",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "_matchId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "overtime": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/tournament/{_id}/match/{_matchId}/detail/warning": {
+      "post": {
+        "tags": [
+          "Tournament"
+        ],
+        "description": "Endpoint to post soccer Tournament",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "_matchId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "warning": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/match/": {
+      "get": {
+        "tags": [
+          "Match"
+        ],
+        "description": "Endpoint to get soccer match",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Match"
+        ],
+        "description": "Endpoint to post soccer match",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/match/{_id}": {
+      "get": {
+        "tags": [
+          "Match"
+        ],
+        "description": "Endpoint to get soccer match",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/match-detail/": {
+      "get": {
+        "tags": [
+          "Match Detail"
+        ],
+        "description": "Endpoint to get soccer Match Detail",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Match Detail"
+        ],
+        "description": "Endpoint to post soccer Match Detail",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/match-detail/{_id}": {
+      "get": {
+        "tags": [
+          "Match Detail"
+        ],
+        "description": "Endpoint to get soccer Match Detail",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/{_id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Tournament"
+        ],
+        "description": "Endpoint to get soccer Tournament",
         "parameters": [
           {
             "name": "_id",
@@ -51,7 +551,10 @@
     },
     "/{_id}/match/{_matchId}/detail/start": {
       "post": {
-        "description": "",
+        "tags": [
+          "Tournament"
+        ],
+        "description": "Endpoint to post soccer Tournament",
         "parameters": [
           {
             "name": "_id",
@@ -87,7 +590,10 @@
     },
     "/{_id}/match/{_matchId}/detail/gol": {
       "post": {
-        "description": "",
+        "tags": [
+          "Tournament"
+        ],
+        "description": "Endpoint to post soccer Tournament",
         "parameters": [
           {
             "name": "_id",
@@ -123,7 +629,10 @@
     },
     "/{_id}/match/{_matchId}/detail/interval": {
       "post": {
-        "description": "",
+        "tags": [
+          "Tournament"
+        ],
+        "description": "Endpoint to post soccer Tournament",
         "parameters": [
           {
             "name": "_id",
@@ -159,7 +668,10 @@
     },
     "/{_id}/match/{_matchId}/detail/overtime": {
       "post": {
-        "description": "",
+        "tags": [
+          "Tournament"
+        ],
+        "description": "Endpoint to post soccer Tournament",
         "parameters": [
           {
             "name": "_id",
@@ -195,7 +707,10 @@
     },
     "/{_id}/match/{_matchId}/detail/warning": {
       "post": {
-        "description": "",
+        "tags": [
+          "Tournament"
+        ],
+        "description": "Endpoint to post soccer Tournament",
         "parameters": [
           {
             "name": "_id",
@@ -231,7 +746,10 @@
     },
     "/transfer/{_id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Transfer"
+        ],
+        "description": "Endpoint to get soccer Transfer",
         "parameters": [
           {
             "name": "_id",
