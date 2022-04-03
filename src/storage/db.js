@@ -19,6 +19,9 @@ async function initialize() {
     db.Players = require('../models/player.model')(sequelize);
     db.Teams = require('../models/team.model')(sequelize);
     db.Transfers = require('../models/transfer.model')(sequelize);
+    db.Matches = require('../models/match.model')(sequelize);
+    db.MatchDetails = require('../models/matchDetail.model')(sequelize);
+    db.Tournaments = require('../models/tournament.model')(sequelize);
 
     // sync all models with database
     await sequelize.sync({ alter: true });
