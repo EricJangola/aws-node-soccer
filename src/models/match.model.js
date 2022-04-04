@@ -7,7 +7,7 @@ function model(sequelize) {
         teamTwo: { type: DataTypes.STRING, allowNull: false },
         date: { type: DataTypes.STRING, allowNull: false },
         winner: { type: DataTypes.STRING, allowNull: false },
-        tournament: { type: DataTypes.STRING, allowNull: false }
+        tournamentId: { type: DataTypes.STRING, allowNull: false }
     };
 
     const options = {
@@ -17,7 +17,8 @@ function model(sequelize) {
         }
     };
     
-    var match = sequelize.define('Match', attributes, options),
+
+    var match = sequelize.define('Matches', attributes, options),
     tournament = sequelize.define('Tournament', Tournament.attributes, Tournament.options);
     match.belongsTo(tournament);
     tournament.hasMany(match);
