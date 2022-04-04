@@ -1,7 +1,7 @@
 const data = require('../data');
 const db = require('../storage/db');
 
-const get =  async function(_id){
+const get =  async function(id){
     await getById(id);
 }
 
@@ -26,8 +26,21 @@ async function create(params) {
     await pl.save();
 }
 
+async function remove(id){
+    db.Matches.findByPk(id).then(data => {
+        if(!data) {
+         throw 'Data not found.';
+        }
+        return db.Matches.destroy({where:{id: id}});
+       })
+       .catch(err => {
+        res.status(500).json({message: 'Deleting match failed.'});
+       })
+}
+
 module.exports = {
     get,
     getAll,
-    create
+    create,
+    remove
 };

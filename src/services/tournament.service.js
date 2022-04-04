@@ -1,7 +1,7 @@
 const data = require('../data');
 const db = require('../storage/db');
 
-const get =  async function(_id){
+const get =  async function(id){
     await getById(id);
 }
 
@@ -26,8 +26,18 @@ async function create(params) {
     await pl.save();
 }
 
+async function remove(id){
+    db.Tournaments.findByPk(id).then(data => {
+        if(!data) {
+         throw 'Data not found.';
+        }
+        return db.Tournaments.destroy({where:{id: id}});
+       });
+}
+
 module.exports = {
     get,
     getAll,
-    create
+    create,
+    remove
 };

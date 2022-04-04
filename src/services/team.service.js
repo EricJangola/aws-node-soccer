@@ -1,7 +1,7 @@
 const data = require('../data');
 const db = require('../storage/db');
 
-const get = function(_id){
+const get = function(id){
     return;
 }
 
@@ -20,8 +20,18 @@ async function create(params) {
     await team.save();
 }
 
+async function remove(id){
+    db.Teams.findByPk(id).then(data => {
+        if(!data) {
+         throw 'Data not found.';
+        }
+        return db.Teams.destroy({where:{id: id}});
+       });
+}
+
 module.exports = {
     get,
     getAll,
-    create
+    create, 
+    remove
 };

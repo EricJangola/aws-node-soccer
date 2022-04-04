@@ -11,6 +11,9 @@ router.route('/')
         // #swagger.description = 'Endpoint to get soccer Team' 
     });
 
+router.route('/:_id')
+    .delete(teamsController.remove);
+
 router.route('/')
     .post(jsonParser, teamsController.create, () =>{
         // #swagger.tags = ['Team']

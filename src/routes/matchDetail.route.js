@@ -5,7 +5,10 @@ var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json();
 
 const controller = require('../controllers/matchDetail.controller');
-// #swagger.tags = ['Match Detail']
+
+router.route('/:_id')
+    .delete(controller.remove);
+
 router.route('/')
     .get(controller.getAll, () => {
         // #swagger.tags = ['Match Detail']
