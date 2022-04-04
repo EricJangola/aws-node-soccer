@@ -14,8 +14,18 @@ function create(req, res, next) {
         .catch(next);
 }
 
+const remove = async function(req, res){
+    service.remove(req.params._id).then(() => {
+        res.status(200).json({message: 'Team deleted'});
+       })  
+       .catch(err => {
+        res.status(500).json({message: 'Deleting team failed.'});
+       })
+}
+
 module.exports = {
     get,
     getAll,
-    create
+    create,
+    remove
 };

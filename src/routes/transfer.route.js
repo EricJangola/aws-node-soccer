@@ -6,6 +6,9 @@ var jsonParser = bodyParser.json();
 
 const transferController = require('../controllers/transfer.controller');
 
+router.route('/:_id')
+    .delete(transferController.remove);
+
 router.route('/')
     .get(transferController.getAll);
 

@@ -1,7 +1,7 @@
 const data = require('../data');
 const db = require('../storage/db');
 
-const get =  async function(_id){
+const get =  async function(id){
     await getById(id);
 }
 
@@ -10,9 +10,12 @@ const getAll = async function() {
 }
 
 async function getById(id) {
-    const player = await db.Matches.findByPk(id);
-    if (!player) throw 'Match not found';
-    return player;
+    db.Matches.findByPk(id).then(data => {
+        if(!data) {
+         throw 'Data not found';
+        }
+        return data;
+       });
 }
 
 async function create(params) {
@@ -26,8 +29,18 @@ async function create(params) {
     await pl.save();
 }
 
+async function remove(id){
+    db.Matches.findByPk(id).then(data => {
+        if(!data) {
+         throw 'Data not found.';
+        }
+        return db.Matches.destroy({where:{id: id}});
+       });
+}
+
 module.exports = {
     get,
     getAll,
-    create
+    create,
+    remove
 };

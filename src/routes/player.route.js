@@ -6,6 +6,9 @@ var jsonParser = bodyParser.json();
 
 const playerController = require('../controllers/player.controller');
 
+router.route('/:_id')
+    .delete(playerController.remove);
+
 router.route('/')
     .get(playerController.getAll);
 

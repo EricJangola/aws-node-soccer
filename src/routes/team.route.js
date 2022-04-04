@@ -6,6 +6,9 @@ var jsonParser = bodyParser.json();
 
 const teamsController = require('../controllers/team.controller');
 
+router.route('/:_id')
+    .delete(teamsController.remove);
+
 router.route('/')
     .get(teamsController.getAll);
 

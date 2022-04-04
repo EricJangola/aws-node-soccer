@@ -6,6 +6,9 @@ var jsonParser = bodyParser.json();
 
 const controller = require('../controllers/matchDetail.controller');
 
+router.route('/:_id')
+    .delete(controller.remove);
+
 router.route('/')
     .get(controller.getAll);
 

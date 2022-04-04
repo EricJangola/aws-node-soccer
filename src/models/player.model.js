@@ -16,7 +16,7 @@ function model(sequelize) {
     };
     
     var player = sequelize.define('Players', attributes, options),
-    team = sequelize.define('Team', Team.attributes, Team.options);
+    team = sequelize.define('team', Team.attributes, Team.options);
     player.belongsTo(team);
     team.hasMany(player);
     return player;

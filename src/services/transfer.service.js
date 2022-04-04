@@ -12,17 +12,27 @@ const getAll = async function(){
 
 async function create(params) {
     // validate
-    /*if (await db.Transfers.findOne({ where: { name: params.name } })) {
+    if (await db.Transfers.findOne({ where: { player: params.player, date: params.date } })) {
         throw 'Transfer "' + params.name + '" is already registered';
-    }*/
+    }
 
     const pl = new db.Transfers(params);
     // save user
     await pl.save();
 }
 
+async function remove(id){
+    db.Transfers.findByPk(id).then(data => {
+        if(!data) {
+         throw 'Data not found.';
+        }
+        return db.Transfers.destroy({where:{id: id}});
+       });
+}
+
 module.exports = {
     get,
     getAll,
-    create
+    create,
+    remove
 };
