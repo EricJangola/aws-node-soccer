@@ -12,7 +12,7 @@ const getAll = async function(){
 
 async function create(params) {
     // validate
-    if (await db.Transfers.findOne({ where: { player: params.player, date: params.date } })) {
+    if (await db.Transfers.findOne({ where: { Player: params.Player, Date: params.Date } })) {
         throw 'Transfer "' + params.name + '" is already registered';
     }
 

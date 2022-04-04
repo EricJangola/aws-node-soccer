@@ -20,7 +20,7 @@ async function getById(id) {
 
 async function create(params) {
     // validate
-    if (await db.Matches.findOne({ where: { name: params.name } })) {
+    if (await db.Matches.findOne({ where: { date: params.date, winner: params.winner, tournamentId: params.tournamentId } })) {
         throw 'Match "' + params.name + '" is already registered';
     }
 
