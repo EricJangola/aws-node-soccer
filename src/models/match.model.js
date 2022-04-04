@@ -1,4 +1,5 @@
 const { DataTypes } = require('sequelize');
+const Tournament = require('./tournament.model');
 
 function model(sequelize) {
     const attributes = {
@@ -16,7 +17,11 @@ function model(sequelize) {
         }
     };
     
-    return sequelize.define('Tournaments', attributes, options);
+    var match = sequelize.define('Match', attributes, options),
+    tournament = sequelize.define('Tournament', Tournament.attributes, Tournament.options);
+    match.belongsTo(tournament);
+    tournament.hasMany(match);
+    return match;
 }
 
 module.exports = model;

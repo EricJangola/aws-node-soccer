@@ -5,8 +5,7 @@ function model(sequelize) {
     const attributes = {
         name: { type: DataTypes.STRING, allowNull: false },
         birthplace: { type: DataTypes.STRING, allowNull: false },
-        country: { type: DataTypes.STRING, allowNull: false },
-        teamId: { type: DataTypes.STRING, allowNull: false }
+        country: { type: DataTypes.STRING, allowNull: false }
     };
 
     const options = {
@@ -16,8 +15,11 @@ function model(sequelize) {
         }
     };
     
-    return sequelize.define('Players', attributes, options);
-    //player.belongsTo(Team);
+    var player = sequelize.define('Players', attributes, options),
+    team = sequelize.define('Team', Team.attributes, Team.options);
+    player.belongsTo(team);
+    team.hasMany(player);
+    return player;
 }
 
 module.exports = model;
