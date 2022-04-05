@@ -8,7 +8,10 @@ const controller = require('../controllers/match.controller');
 const { route } = require('express/lib/application');
 
 router.route('/:_id')
-    .delete(controller.remove);
+    .delete(controller.remove, () => {
+        // #swagger.tags = ['Match']
+        // #swagger.description = 'Endpoint to delete soccer match' 
+    });
 
 router.route('/')
     .get(controller.getAll, () => {
