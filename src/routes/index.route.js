@@ -17,7 +17,7 @@ router.use('/match', match);
 router.use('/match-detail', matchDetail);
 router.use('/', swagger);
 
-router.get('/', (req, res) => res.send('Sample Node API Version1'));
+router.get('/', (req, res) => res.send('Sample Node API Version - 1'));
 router.get('/health', (req, res) => {
   const healthcheck = {
 		uptime: process.uptime(),
