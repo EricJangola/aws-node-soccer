@@ -1,12 +1,17 @@
 const data = require('../data');
 const db = require('../storage/db');
+const redisKey = "match";
 
 const get =  async function(id){
     await getById(id);
 }
 
 const getAll = async function() {
-    return await db.Matches.findAll();
+    try {
+        return await redis.getAllKey(redisKey);
+    } catch(err) {
+        return await db.Matches.findAll();
+    }
 }
 
 async function getById(id) {
@@ -27,6 +32,7 @@ async function create(params) {
     const pl = new db.Matches(params);
     // save user
     await pl.save();
+    await redis.setKey(redisKey+pl.teamOne+pl.teamTwo+pl.date, pl);
 }
 
 async function remove(id){

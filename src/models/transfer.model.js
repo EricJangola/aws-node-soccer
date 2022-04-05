@@ -6,9 +6,9 @@ function model(sequelize) {
     const attributes = {
         originalTeam: { type: DataTypes.STRING, allowNull: false },
         newTeam: { type: DataTypes.STRING, allowNull: false },
-        Date: { type: DataTypes.STRING, allowNull: false },
-        Player: { type: DataTypes.STRING, allowNull: false },
-        Price: { type: DataTypes.STRING, allowNull: false }
+        date: { type: DataTypes.STRING, allowNull: false },
+        player: { type: DataTypes.STRING, allowNull: false },
+        price: { type: DataTypes.STRING, allowNull: false }
     };
 
     const options = {
