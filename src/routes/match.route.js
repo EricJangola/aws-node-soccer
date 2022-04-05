@@ -8,16 +8,28 @@ const controller = require('../controllers/match.controller');
 const { route } = require('express/lib/application');
 
 router.route('/:_id')
-    .delete(controller.remove);
+    .delete(controller.remove, () => {
+        // #swagger.tags = ['Match']
+        // #swagger.description = 'Endpoint to delete soccer match' 
+    });
 
 router.route('/')
-    .get(controller.getAll);
+    .get(controller.getAll, () => {
+        // #swagger.tags = ['Match']
+        // #swagger.description = 'Endpoint to get soccer match' 
+    });
 
 router.route('/:_id')
-    .get(controller.get);
+    .get(controller.get, () => {
+        // #swagger.tags = ['Match']
+        // #swagger.description = 'Endpoint to get soccer match' 
+    });
 
 router.route('/')
-    .post(jsonParser, controller.create);
+    .post(jsonParser, controller.create, () => {
+        // #swagger.tags = ['Match']
+        // #swagger.description = 'Endpoint to post soccer match' 
+    });
 
 
 //router.use('/:Account_id', accountsCarsRoute);

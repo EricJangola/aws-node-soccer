@@ -2,6 +2,8 @@ const express = require('express');
 const http = require('http');
 const https = require('https');
 const cors = require('cors');
+const swaggerUi = require('swagger-ui-express')
+const swaggerFile = require('./swagger_output.json')
 var bodyParser = require('body-parser')
 
 //build config from params
@@ -29,6 +31,8 @@ app.use(bodyParser.json())
 const httpServer = http.createServer(app);
 httpServer.listen(port);
 console.log(`[${serviceName}] http server listening at port ${port}`);
+
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 //start https server
 if(isHttps) {

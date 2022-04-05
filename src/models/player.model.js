@@ -7,6 +7,7 @@ function model(sequelize) {
         birthplace: { type: DataTypes.STRING, allowNull: false },
         country: { type: DataTypes.STRING, allowNull: false }
     };
+    
 
     const options = {
         scopes: {
