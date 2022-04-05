@@ -7,7 +7,10 @@ var jsonParser = bodyParser.json();
 const transferController = require('../controllers/transfer.controller');
 
 router.route('/:_id')
-    .delete(transferController.remove);
+    .delete(transferController.remove, () => {
+        // #swagger.tags = ['Transfer']
+        // #swagger.description = 'Endpoint to delete soccer Transfer'
+    });
 
 router.route('/')
     .get(transferController.getAll, () => {

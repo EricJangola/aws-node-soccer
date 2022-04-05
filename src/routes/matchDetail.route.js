@@ -8,7 +8,7 @@ const controller = require('../controllers/matchDetail.controller');
 
 router.route('/:_id')
     .delete(controller.remove, () => {
-        // #swagger.tags = ['Match']
+        // #swagger.tags = ['Match Detail']
         // #swagger.description = 'Endpoint to delete soccer match detail' 
     });
 

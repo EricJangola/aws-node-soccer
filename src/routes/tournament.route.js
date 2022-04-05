@@ -7,7 +7,10 @@ var jsonParser = bodyParser.json();
 const controller = require('../controllers/tournament.controller');
 
 router.route('/:_id')
-    .delete(controller.remove);
+    .delete(controller.remove, () => {
+        // #swagger.tags = ['Tournament']
+        // #swagger.description = 'Endpoint to delete soccer Tournament'
+    });
 
 router.route('/')
     .get(controller.getAll, () => {

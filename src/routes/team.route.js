@@ -12,7 +12,10 @@ router.route('/')
     });
 
 router.route('/:_id')
-    .delete(teamsController.remove);
+    .delete(teamsController.remove, () => {
+        // #swagger.tags = ['Team']
+        // #swagger.description = 'Endpoint to delete soccer Team'
+    });
 
 router.route('/')
     .post(jsonParser, teamsController.create, () =>{

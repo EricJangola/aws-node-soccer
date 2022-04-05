@@ -78,11 +78,51 @@
       }
     },
     "/team/{_id}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
       "get": {
         "tags": [
           "Team"
         ],
         "description": "Endpoint to get soccer Team",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/transfer/{_id}": {
+      "get": {
+        "tags": [
+          "Transfer"
+        ],
+        "description": "Endpoint to get soccer Transfer",
         "parameters": [
           {
             "name": "_id",
@@ -145,6 +185,46 @@
         }
       }
     },
+    "/player/{_id}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Player"
+        ],
+        "description": "Endpoint to get soccer Player",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/player/": {
       "get": {
         "tags": [
@@ -171,12 +251,31 @@
         }
       }
     },
-    "/player/{_id}": {
+    "/tournament/{_id}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
       "get": {
         "tags": [
-          "Player"
+          "Tournament"
         ],
-        "description": "Endpoint to get soccer Player",
+        "description": "Endpoint to get soccer Tournament",
         "parameters": [
           {
             "name": "_id",
@@ -211,27 +310,6 @@
         ],
         "description": "Endpoint to post soccer Tournament",
         "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/tournament/{_id}": {
-      "get": {
-        "tags": [
-          "Tournament"
-        ],
-        "description": "Endpoint to get soccer Tournament",
-        "parameters": [
-          {
-            "name": "_id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -434,6 +512,49 @@
         }
       }
     },
+    "/match/{_id}": {
+      "delete": {
+        "tags": [
+          "Match"
+        ],
+        "description": "Endpoint to delete soccer match",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Match"
+        ],
+        "description": "Endpoint to get soccer match",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/match/": {
       "get": {
         "tags": [
@@ -460,12 +581,34 @@
         }
       }
     },
-    "/match/{_id}": {
+    "/match-detail/{_id}": {
+      "delete": {
+        "tags": [
+          "Match Detail"
+        ],
+        "description": "Endpoint to delete soccer match detail",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
       "get": {
         "tags": [
-          "Match"
+          "Match Detail"
         ],
-        "description": "Endpoint to get soccer match",
+        "description": "Endpoint to get soccer Match Detail",
         "parameters": [
           {
             "name": "_id",
@@ -507,33 +650,12 @@
         }
       }
     },
-    "/match-detail/{_id}": {
-      "get": {
-        "tags": [
-          "Match Detail"
-        ],
-        "description": "Endpoint to get soccer Match Detail",
-        "parameters": [
-          {
-            "name": "_id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/{_id}": {
-      "get": {
+      "delete": {
         "tags": [
-          "Tournament"
+          "Transfer"
         ],
-        "description": "Endpoint to get soccer Tournament",
+        "description": "Endpoint to delete soccer Transfer",
         "parameters": [
           {
             "name": "_id",
@@ -545,6 +667,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -735,27 +860,6 @@
                 }
               }
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/transfer/{_id}": {
-      "get": {
-        "tags": [
-          "Transfer"
-        ],
-        "description": "Endpoint to get soccer Transfer",
-        "parameters": [
-          {
-            "name": "_id",
-            "in": "path",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
