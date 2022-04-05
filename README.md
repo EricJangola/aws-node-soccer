@@ -1,5 +1,6 @@
 # AWS Soccer Node
 
+## Descrição
 *  A empresa que você trabalha foi contratada pela CBF (Confederação Brasileira de Futebol) 
 para a criação de uma API que auxiliará no gerenciamento de sua principal competição anual: O 
 Campeonato  Brasileiro. Portanto, ficou  combinado  que, na primeira  Sprint, os seguintes 
