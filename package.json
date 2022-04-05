@@ -13,11 +13,14 @@
   "author": "",
   "license": "EPL-2.0",
   "dependencies": {
+    "amqplib": "^0.8.0",
     "body-parser": "^1.19.2",
     "cors": "2.8.5",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
+    "promise-redis": "0.0.5",
+    "redis": "^4.0.6",
     "sequelize": "^6.17.0",
     "swagger-ui-express": "4.2.0",
     "yargs": "17.2.1"
