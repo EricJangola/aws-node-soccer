@@ -1,5 +1,6 @@
 const data = require('../data');
 const db = require('../storage/db');
+const redis = require('../storage/redis');
 const redisKey = "player";
 
 const get =  async function(id){

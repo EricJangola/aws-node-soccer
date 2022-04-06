@@ -1,5 +1,6 @@
 const data = require('../data');
 const db = require('../storage/db');
+const redis = require('../storage/redis');
 const redisKey = "transfer";
 
 const get = function(req){
@@ -15,11 +16,6 @@ const getAll = async function(){
 }
 
 async function create(params) {
-    // validate
-    if (await db.Transfers.findOne({ where: { Player: params.Player, Date: params.Date } })) {
-        throw 'Transfer "' + params.name + '" is already registered';
-    }
-
     const pl = new db.Transfers(params);
     // save user
     await pl.save();

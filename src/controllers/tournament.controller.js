@@ -19,7 +19,7 @@ const setStart = async (req, res, next) => {
     if(!req.body.start) throw 'Invalid resource';
     const matchDetail = await findMatchDetail(req.params._matchId);
     if (!matchDetail) throw 'Match not found';
-    matchDetail.setStart(req.body.start);
+    matchDetail.start = req.body.start;
     matchDetail.save();
 
     return res.json({ message: 'Match Detail updated' });
@@ -31,7 +31,7 @@ async function setGol(req, res, next) {
     const matchDetail = await findMatchDetail(req.params._matchId);
     if (!matchDetail) throw 'Match not found';
 
-    matchDetail.setGol(req.body.gol);
+    matchDetail.gol = req.body.gol;
     matchDetail.save();
     
     return res.json({ message: 'Match Detail updated' });
@@ -42,7 +42,7 @@ async function setInterval(req, res, next) {
     const matchDetail = await findMatchDetail(req.params._matchId);
     if (!matchDetail) throw 'Match not found';
 
-    matchDetail.setInterval(req.body.interval);
+    matchDetail.interval = req.body.interval;
     matchDetail.save();
     
     return res.json({ message: 'Match Detail updated' });
@@ -53,7 +53,7 @@ async function setOvertime(req, res, next) {
     const matchDetail = await findMatchDetail(req.params._matchId);
     if (!matchDetail) throw 'Match not found';
 
-    matchDetail.setOvertime(req.body.overtime);
+    matchDetail.overtime = req.body.overtime;
     matchDetail.save();
     
     return res.json({ message: 'Match Detail updated' });
@@ -64,7 +64,7 @@ async function setWarning(req, res, next) {
     const matchDetail = await findMatchDetail(req.params._matchId);
     if (!matchDetail) throw 'Match not found';
 
-    matchDetail.setWarning(req.body.warning);
+    matchDetail.warning = req.body.warning;
     matchDetail.save();
     
     return res.json({ message: 'Match Detail updated' });

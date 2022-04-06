@@ -1,9 +1,10 @@
 const data = require('../data');
 const db = require('../storage/db');
+const redis = require('../storage/redis');
 const redisKey = "matchDetail";
 
 const get =  async function(id){
-    await getById(id);
+    return await getById(id);
 }
 
 const getAll = async function() {
@@ -22,7 +23,7 @@ async function getById(id) {
 
 async function create(params) {
     // validate
-    if (await db.MatchDetails.findOne({ where: { name: params.name } })) {
+    if (await db.MatchDetails.findOne({ where: { matchId: params.matchId } })) {
         throw 'Match Detail"' + params.name + '" is already registered';
     }
 
