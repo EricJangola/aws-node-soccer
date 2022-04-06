@@ -1,5 +1,21 @@
 # AWS Soccer Node
 
+# Dados dos alunos
+   Eric Jangola e Silva - 139959
+   Julia Casseb
+   Michael Nakashima
+
+# Stack
+
+*  Nodejs com a utilização do express.js
+*  Redis para a persistencia em cache
+*  Utilizamos o RabbitMq para realizar os Post's do trabalho ( Redis as a service )
+*  Como banco relacional utilizamos o Mysql via docker, para evitar o boilerplate da instalação localMecanismos
+*  
+# Mecanismos
+
+Utilizamos o mecanismo de cache, no Redis, para obter uma melhor performance, em conjunto com a estrategia de fila, principalmente nos Post's, devido ao fato do Nodejs ser single thread, para aplicações com alta performance é interessante o uso de filas.
+
 *  A empresa que você trabalha foi contratada pela CBF (Confederação Brasileira de Futebol) 
 para a criação de uma API que auxiliará no gerenciamento de sua principal competição anual: O 
 Campeonato  Brasileiro. Portanto, ficou  combinado  que, na primeira  Sprint, os seguintes 
