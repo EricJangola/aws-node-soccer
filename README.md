@@ -1,9 +1,9 @@
 # AWS Soccer Node
 
 # Dados dos alunos
-   Eric Jangola e Silva - 139959
-   Julia Casseb
-   Michael Nakashima
+   *  Eric Jangola e Silva - 139959
+   *  Julia Casseb
+   *  Michael Nakashima
 
 # Stack
 
