@@ -16,9 +16,9 @@ const getAll = async function() {
 }
 
 async function getById(id) {
-    const player = await db.MatchDetails.findByPk(id);
-    if (!player) throw 'Match not found';
-    return player;
+    const MatchDetails = await db.MatchDetails.findByPk(id);
+    if (!MatchDetails) throw 'Match not found';
+    return MatchDetails;
 }
 
 async function create(params) {

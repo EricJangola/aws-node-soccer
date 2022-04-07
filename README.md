@@ -2,7 +2,7 @@
 
 # Dados dos alunos
    *  Eric Jangola e Silva - 139959
-   *  Julia Casseb
+   *  Julia Casseb - 1358480
    *  Michael Nakashima - 138995
 
 # Stack

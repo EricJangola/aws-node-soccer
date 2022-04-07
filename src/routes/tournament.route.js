@@ -30,17 +30,18 @@ router.route('/')
         // #swagger.description = 'Endpoint to post soccer Tournament'
     });
 
+router.route('/:_id/match/:_matchId/detail/gol')
+    .post(jsonParser, controller.setGol, () => {
+        // #swagger.tags = ['Tournament']
+        // #swagger.description = 'Endpoint to post soccer Tournament'
+    });
+
 router.route('/:_id/match/:_matchId/detail/start')
     .post(jsonParser, controller.setStart, () => {
         // #swagger.tags = ['Tournament']
         // #swagger.description = 'Endpoint to post soccer Tournament'
     });
 
-router.route('/:_id/match/:_matchId/detail/gol')
-    .post(jsonParser, controller.setGol, () => {
-        // #swagger.tags = ['Tournament']
-        // #swagger.description = 'Endpoint to post soccer Tournament'
-    });
 
 router.route('/:_id/match/:_matchId/detail/interval')
     .post(jsonParser, controller.setInterval, () => {
@@ -56,6 +57,18 @@ router.route('/:_id/match/:_matchId/detail/overtime')
 
 router.route('/:_id/match/:_matchId/detail/warning')
     .post(jsonParser, controller.setWarning, () => {
+        // #swagger.tags = ['Tournament']
+        // #swagger.description = 'Endpoint to post soccer Tournament'
+    });
+
+router.route('/:_id/match/:_matchId/detail/end')
+    .post(jsonParser, controller.setEnd, () => {
+        // #swagger.tags = ['Tournament']
+        // #swagger.description = 'Endpoint to post soccer Tournament'
+    });
+
+router.route('/:_id/match/:_matchId/detail/replacements')
+    .post(jsonParser, controller.setReplacements, () => {
         // #swagger.tags = ['Tournament']
         // #swagger.description = 'Endpoint to post soccer Tournament'
     });

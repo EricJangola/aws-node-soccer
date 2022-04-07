@@ -5,6 +5,7 @@ function model(sequelize) {
         matchId: { type: DataTypes.STRING, allowNull: false },
         start: { type: DataTypes.STRING, allowNull: true },
         interval: { type: DataTypes.STRING, allowNull: true },
+        gol: { type: DataTypes.STRING, allowNull: true },
         overtime: { type: DataTypes.STRING, allowNull: true },
         replacements: { type: DataTypes.STRING, allowNull: true },
         warnings: { type: DataTypes.STRING, allowNull: true },

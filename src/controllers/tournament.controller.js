@@ -25,13 +25,35 @@ const setStart = async (req, res, next) => {
     return res.json({ message: 'Match Detail updated' });
 }
 
+const setEnd = async (req, res, next) => {
+    if(!req.body.end) throw 'Invalid resource';
+    const matchDetail = await findMatchDetail(req.params._matchId);
+    if (!matchDetail) throw 'Match not found';
+    matchDetail.end = req.body.end;
+    matchDetail.save();
+
+    return res.json({ message: 'Match Detail updated' });
+}
+
 async function setGol(req, res, next) {
     
     if(!req.body.gol) throw 'Invalid resource';
     const matchDetail = await findMatchDetail(req.params._matchId);
-    if (!matchDetail) throw 'Match not found';
+    if (!matchDetail || matchDetail == undefined) throw 'Match not found';
 
     matchDetail.gol = req.body.gol;
+    matchDetail.save();
+    
+    return res.json({ message: 'Match Detail updated' });
+}
+
+async function setReplacements(req, res, next) {
+    
+    if(!req.body.replacements) throw 'Invalid resource';
+    const matchDetail = await findMatchDetail(req.params._matchId);
+    if (!matchDetail) throw 'Match not found';
+
+    matchDetail.replacements = req.body.replacements;
     matchDetail.save();
     
     return res.json({ message: 'Match Detail updated' });
@@ -64,7 +86,7 @@ async function setWarning(req, res, next) {
     const matchDetail = await findMatchDetail(req.params._matchId);
     if (!matchDetail) throw 'Match not found';
 
-    matchDetail.warning = req.body.warning;
+    matchDetail.warnings = req.body.warning;
     matchDetail.save();
     
     return res.json({ message: 'Match Detail updated' });
@@ -88,7 +110,9 @@ module.exports = {
     getAll,
     create,
     setStart,
+    setEnd,
     setGol, 
+    setReplacements,
     setInterval,
     setOvertime,
     setWarning,
