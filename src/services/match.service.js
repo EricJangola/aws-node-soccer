@@ -1,12 +1,18 @@
 const data = require('../data');
 const db = require('../storage/db');
+const redis = require('../storage/redis');
+const redisKey = "match";
 
 const get =  async function(id){
     await getById(id);
 }
 
 const getAll = async function() {
-    return await db.Matches.findAll();
+    try {
+        return await redis.getAllKey(redisKey);
+    } catch(err) {
+        return await db.Matches.findAll();
+    }
 }
 
 async function getById(id) {
@@ -20,13 +26,14 @@ async function getById(id) {
 
 async function create(params) {
     // validate
-    if (await db.Matches.findOne({ where: { date: params.date, winner: params.winner, tournamentId: params.tournamentId } })) {
+    if (await db.Matches.findOne({ where: { date: params.date, winner: params.winner, tournamentId: params.tournament } })) {
         throw 'Match "' + params.name + '" is already registered';
     }
 
     const pl = new db.Matches(params);
     // save user
     await pl.save();
+    await redis.setKey(redisKey+pl.teamOne+pl.teamTwo+pl.date, pl);
 }
 
 async function remove(id){

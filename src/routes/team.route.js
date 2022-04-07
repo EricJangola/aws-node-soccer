@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router({ mergeParams: true });
+const queue = require("../rabbitMq/queue");
 
 var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json();
@@ -17,11 +18,16 @@ router.route('/:_id')
         // #swagger.description = 'Endpoint to delete soccer Team'
     });
 
-router.route('/')
-    .post(jsonParser, teamsController.create, () =>{
-        // #swagger.tags = ['Team']
+/*router.route('/')
+    .post(jsonParser, teamsController.create);*/
+
+router.post('/', jsonParser, (req, res) => {
+    // #swagger.tags = ['Team']
         // #swagger.description = 'Endpoint to post soccer Team'
-    });
+    
+    queue.sendToQueue("postTeam", req.body);
+    res.json({message: 'Your request will be processed!'});
+})
 
 router.route('/:_id')
     .get(teamsController.get, () => {

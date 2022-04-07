@@ -12,7 +12,7 @@
       "database": "aws-database"
   },
   "rabbit": {
-    "uri": "amqp://localhost"
+    "uri": "amqps://ffxznleq:3daFOf83ZlDexw3eNqHAMBLtuxhJtgM4@beaver.rmq.cloudamqp.com/ffxznleq"
   },
   "redis": {
     "uri": "localhost"

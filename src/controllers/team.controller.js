@@ -1,12 +1,27 @@
 const service = require('../services/team.service');
+const queue = require("../rabbitMq/queue");
 
 const get = function(req, res){
     res.send(service.get(req.params._id));
 }
 
-const getAll = async function(req, res){
+/*const getAll = async function(req, res) {
     res.send( await service.getAll());
+}*/
+
+const getAll = async function(req, res) {
+    res.send(await service.getAll());
 }
+
+queue.consume("postTeam", message => {
+    //process the message
+    const body = convertToBody(message);
+    service.create(body)
+        .then(() => console.log("processing " + message.content.toString()))
+        .catch(err => console.error(err));
+});
+
+convertToBody = (message) => { return JSON.parse(message.content); }
 
 function create(req, res, next) {
     service.create(req.body)
