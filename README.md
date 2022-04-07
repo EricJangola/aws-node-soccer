@@ -3,7 +3,7 @@
 # Dados dos alunos
    *  Eric Jangola e Silva - 139959
    *  Julia Casseb
-   *  Michael Nakashima
+   *  Michael Nakashima - 138995
 
 # Stack
 
@@ -59,3 +59,14 @@ partida. Exemplos:
 Além da persistência das informações relacionadas aos eventos no repositório que vocês 
 escolheram utilizar, vocês deverão encaminhar as mensagens recebidas para um tópico ou para 
 uma fila (sugestão: Amazon SNS/SQS, Kafka, RabbitMQ, etc).  
+
+# Como rodar a aplicação
+1. Primeiro faça download do repositório ou clone o mesmo na sua máquina.
+
+2. com o projeto na sua máquina, no terminal de comando npm + i.
+
+3. Assim que as dependências forem instaladas, será necessário configurar o config.json dentro da pasta src.
+
+4. Edite o config.json para na chave do database com sua senha e password para rodar o mysql.
+
+5. A aplicação rodará em http://localhost:1800 e o swagger da rota de APIs é a http://localhost:18000/doc/#/

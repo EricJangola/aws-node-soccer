@@ -79,7 +79,10 @@
     },
     "/team/{_id}": {
       "delete": {
-        "description": "",
+        "tags": [
+          "Team"
+        ],
+        "description": "Endpoint to delete soccer Team",
         "parameters": [
           {
             "name": "_id",
@@ -187,7 +190,10 @@
     },
     "/player/{_id}": {
       "delete": {
-        "description": "",
+        "tags": [
+          "Player"
+        ],
+        "description": "Endpoint to delete soccer Player",
         "parameters": [
           {
             "name": "_id",
@@ -253,7 +259,10 @@
     },
     "/tournament/{_id}": {
       "delete": {
-        "description": "",
+        "tags": [
+          "Tournament"
+        ],
+        "description": "Endpoint to delete soccer Tournament",
         "parameters": [
           {
             "name": "_id",
